@@ -1,17 +1,16 @@
 import './assets/styles/styles.css';
-import createBigTemp from "./page-creation/createBigTemp.js"
+import createTempData from "./page-creation/createTempData.js"
+import createWindData from "./page-creation/createWindData.js"
 
-async function getWeatherData(location) {
+async function getWeatherData(location, content) {
     const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=1986480656ec490d950204923202611&q=${location}`);
-    return response.json();
+    const responseJson = await response.json();
+
+    createTempData(responseJson, content);
+    createWindData(responseJson, content);
+
 }
-const data = getWeatherData("enschede");
 
 const content = document.getElementById("main");
 
-data.then((jsonData) => {
-    createBigTemp(jsonData, content);
-})
-
-
-createBigTemp(data, content)
+getWeatherData("christiana", content);

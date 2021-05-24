@@ -1,3 +1,84 @@
 body {
-    background-color: #1d3557;
+    background-color: #240046;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    font-size: 14vh;
+    margin: 0px;
+    height: 90%;
+}
+
+h2 {
+    font-size: 4vh;
+    margin: 0px;
+}
+
+h3 {
+    font-size: 2vh;
+    margin: 0px;
+    margin-top: 20px;
+}
+
+.tempReadings {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.tempCondition {
+    color: #c77dff;
+    font-size: 2.5vh;
+    margin: 0px;
+    margin-top: -10px;
+}
+
+.dark {
+    color: #7b2cbf;
+}
+
+.mid {
+    color: #9d4edd;
+}
+
+.midBright {
+    color: #c77dff;
+}
+
+.bright {
+    color: #e0aaff;
+}
+
+.windReadings {
+    margin: 2.5vh;
+    width: 50%;
+    
+}
+
+.windTitle {
+}
+
+.windInfo {
+    font-size: 2vh;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+}
+
+.windNum {
+    flex: 20%;
+    max-width: 80px;
+    text-align: end;
+    margin: 5px;
+}
+
+.windUnit {
+    flex: 20%;
+    margin: 5px;
+}
+
+.windText {
+    flex: 50%;
+    margin: 5px;
+    max-width: 10em;
 }
