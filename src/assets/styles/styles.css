@@ -12,6 +12,7 @@ h1 {
 h2 {
     font-size: 4vh;
     margin: 0px;
+    text-align: center;
 }
 
 h3 {
@@ -24,6 +25,7 @@ h3 {
     display: flex;
     flex-direction: column;
     text-align: center;
+    flex-basis: 100%;
 }
 
 .tempCondition {
@@ -51,34 +53,51 @@ h3 {
 
 .windReadings {
     margin: 2.5vh;
-    width: 50%;
-    
+    width: 45%;
+    flex-basis: 100%;
 }
 
-.windTitle {
+.atmosReadings {
+    margin: 2.5vh;
+    width: 45%;
+    flex-basis: 100%;
+
 }
 
-.windInfo {
+
+.dataTitle {
+}
+
+.dataInfo {
     font-size: 2vh;
     display: flex;
     flex-wrap: wrap;
     max-width: 500px;
+    min-width: 400px;
+    margin: auto;
+    justify-content: center;
 }
 
-.windNum {
+.dataNum {
     flex: 20%;
     max-width: 80px;
     text-align: end;
     margin: 5px;
 }
 
-.windUnit {
+.dataUnit {
     flex: 20%;
     margin: 5px;
+    max-width: 30px;
 }
 
-.windText {
+.dataText {
     flex: 50%;
     margin: 5px;
     max-width: 10em;
+}
+
+#main {
+    display: flex;
+    flex-wrap: wrap;
 }
