@@ -11,8 +11,36 @@ export default function createForecast(data, content) {
     // [13, 14, 15, 16, 17, 18, 19]
 
     for (let index = (hour - 3); index < (hour+4); index++) {
-        console.log(index)
-        
+        let newElement = document.createElement("div")
+        newElement.classList.add("EForecast")
+
+        let newETemp = document.createElement("p")
+        if (index == hour) {
+            newETemp.classList.add("bright", "ETemp", "ECurrent")
+            newETemp.textContent = 	"▴"
+        } else {
+            newETemp.classList.add("mid", "ETemp")
+            newETemp.textContent = data["forecast"]["forecastday"]["0"]["hour"][index]["temp_c"] + "°"
+        }
+
+        newETemp.classList.add("mid", "ETemp")
+        newElement.appendChild(newETemp)
+
+        let newETime = document.createElement("p")
+        newETime.textContent = index + ":00"
+
+        if (index == hour) {
+            newETime.classList.add("midBright", "ETime", "ECurrent")
+        } else {
+            newETime.classList.add("dark", "ETime")
+        }
+
+        newElement.appendChild(newETime)
+
+
+        forecastMain.appendChild(newElement)
     }
+
+    content.appendChild(forecastMain)
 
 }

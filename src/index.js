@@ -3,10 +3,11 @@ import createTempData from "./page-creation/createTempData.js"
 import createForecast from "./page-creation/createForecast.js"
 import createWindData from "./page-creation/createWindData.js"
 import createAtmosData from "./page-creation/createAtmosData.js"
+import createAskForLocPage from "./page-creation/createAskForLocPage.js"
 
-navigator.geolocation.getCurrentPosition((e) => {console.log(e)}, (e) => {console.log(e)});
 
 async function getWeatherData(location, content) {
+    console.log(location + "cry")
     const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=1986480656ec490d950204923202611&q=${location}`);
     const responseJson = await response.json();
 
@@ -18,4 +19,12 @@ async function getWeatherData(location, content) {
 
 const content = document.getElementById("main");
 
-getWeatherData("christiana", content);
+async function initializePage(content) {
+    
+    locData = await createAskForLocPage(content) 
+    console.log(locData + "suck my balls")
+
+    getWeatherData(locData, content)
+}
+
+initializePage(content)
