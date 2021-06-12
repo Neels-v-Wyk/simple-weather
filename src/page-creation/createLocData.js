@@ -1,6 +1,6 @@
-export default async function createAskForLocPage(content) {
+import handleLocData from './handleLocData.js';
 
-    let locationData = ""
+export default function createLocRequestPage(content) {
 
     let askPage = document.createElement("div")
     askPage.id = "askPage"
@@ -17,32 +17,26 @@ export default async function createAskForLocPage(content) {
 
     let askButton = document.createElement("button");
     askButton.textContent = "REQUEST ACCESS"
-    askButton.addEventListener("click", () => {clickHandler()})
-
-    async function clickHandler(){
-        locationData = await requestLocation();
-    }
-
+    askButton.addEventListener("click", () => navigator.geolocation.getCurrentPosition(onSuccess, onError))
     askPage.appendChild(askButton)
     content.appendChild(askPage)
 
-    return locationData;
 }
 
+function onError(err) {
+    console.log(err)
+}
 
-function requestLocation() {
+function onSuccess(position) {
 
-    function success(e){
-        document.getElementById("askPage").remove();
+    const content = document.getElementById("main");
 
-        console.log(e["coords"]["latitude"], e["coords"]["longitude"]);
-        return new Promise(resolve => (e["coords"]["latitude"] + "," + e["coords"]["longitude"]))
-    }
+    document.getElementById("askPage").remove();
+    let locationData = position["coords"]["latitude"] + "," + position["coords"]["longitude"]
 
-    function error(e){
-        console.log(e)
-    }
+    handleLocData(locationData, content)
 
-    navigator.geolocation.getCurrentPosition(success, error);
-    
+    // return(locationData)
+
+
 }

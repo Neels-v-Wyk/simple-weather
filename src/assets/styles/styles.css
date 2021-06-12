@@ -159,3 +159,15 @@ h3 {
     color: #e0aaff;
     font-size: 10vh;
 }
+
+button {
+    font-size: 3vh;
+    padding: 30px;
+    margin: 60px;
+    background-color: #240046;
+    border: #c77dff;
+    color: #e0aaff;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 20px;
+}
